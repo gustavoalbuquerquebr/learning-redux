@@ -1,0 +1,37 @@
+{
+  "name": "working",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development webpack-dev-server --open --mode development",
+    "build": "NODE_ENV=production webpack --mode production"
+  },
+  "keywords": [],
+  "author": "Gustavo",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-react-app": "^9.0.2",
+    "css-loader": "^3.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "redux-logger": "^3.0.6",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  },
+  "dependencies": {
+    "core-js": "^3.2.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "regenerator-runtime": "^0.13.3",
+    "whatwg-fetch": "^3.0.0"
+  }
+}
