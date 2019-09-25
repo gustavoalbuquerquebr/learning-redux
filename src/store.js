@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import { createLogger } from "redux-logger";
 
 const logger = createLogger({
@@ -7,19 +7,49 @@ const logger = createLogger({
 
 const initialState = {
   count: 0,
+  color: "#ff00ff",
 };
 
-function reducer(state = initialState, action) {
+// function reducer(state = initialState, action) {
+//   switch (action.type) {
+//     case "INCREMENT":
+//       return { ...state, count: state.count + action.value };
+//     case "DECREMENT":
+//       return { ...state, count: state.count - action.value };
+//     case "CHANGE_COLOR":
+//       return { ...state, color: action.value };
+//     default:
+//       return state;
+//   }
+// }
+
+function countReducer(state = initialState.count, action) {
   switch (action.type) {
     case "INCREMENT":
-      return { ...state, count: state.count + action.value };
+      return state + action.value;
     case "DECREMENT":
-      return { ...state, count: state.count - action.value };
+      return state - action.value;
     default:
       return state;
   }
 }
 
-const store = createStore(reducer, applyMiddleware(logger));
+function colorReducer(state = initialState.color, action) {
+  switch (action.type) {
+    case "CHANGE_COLOR":
+      return action.value;
+    default:
+      return state;
+  }
+}
+
+const reducers = combineReducers({
+  count: countReducer,
+  color: colorReducer,
+});
+
+const store = createStore(reducers, applyMiddleware(logger));
+
+console.log(store.getState());
 
 export default store;

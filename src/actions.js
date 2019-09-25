@@ -11,3 +11,10 @@ export function decrement(value = 1) {
     value,
   };
 }
+
+export function changeColor(color) {
+  return {
+    type: "CHANGE_COLOR",
+    value: color,
+  };
+}
